@@ -1,5 +1,46 @@
 # 202130129 전진영
 
+# 5월 15일
+
+## 역 데이터 흐름 추가하기
+
+* 지금까지 우리는 계층 구조 아래로 흐르는 props와 state의 함수로써 앱을 만들었습니다.
+
+* 이제 사용자 입력에 따라state를 변경하려면 반대 반향의 데이터 흐름을 만들어야 합니다.
+
+* 이를 위해서는 계층 구조의 하단에 있는 컴포넌트에서 FilterableProductTable의 state를 업데이트할 수 있어야 합니다.
+
+* React는 데이터 흐름을 명시적으로 보이게 만들어 줍니다.
+
+* 그러나 이는 전통적인 양방향 데이터 바인딩보다 조금 더 많은 타이핑이 필요합니다.
+
+* 4단계의 예시에서 체크하거나 키보드를 타이핑할 경우 UI의 변화가 없고 입력을 무시하는 것을 확인할 수 있습니다.
+
+* 이것은 의도적으로 <input value={filterText} /> 로 코드를 쓰면서 value라는 prop이 항상 FilterableProductTable의 filterText라는 state를 통해서 데이터를 받도록 정했기 때문입니다.
+
+* filterText라는 state가 변경되는 것이 아니기 때문에 unput의 value는 변하지 않고 화면도 바뀌는 것이 없습니다.
+
+* 우리는 사용자가 input을 변경할 때마다 사용자의 입력을 반영할 수 있도록 state를 업데이트하기를 원하빈다.
+
+* state는 FilterableProductTable이 가지고 있고 state 변경을 위해서는 setTilterText와 setInStockOnly를 호출을 하면 됩니다.
+
+* SearchBar가 FilteravleProductTable의 state를 업데이트랄 수 있도록 하려면, 이 함수들을 SearchBar로 전달해야 합니다.
+
+## State가 어디에 있어야 할 지 정하기
+
+* ProductTable의 props를 추가해 줍니다.
+
+* ProductTable의 forEach문을 수정합니다.
+  * 첫 번쨰 코드와 비교해 보면서 어디가 수정되었는지 정확하게 수정해 줘야 합니다.
+
+* 아직 폼을 수정하는 작업이 작동하지 않습니다. 문서의 샌드박스에서 콘소 에러가 발생하고 그 이유를 설명하겠습니다.
+
+* 완성된 코드를보면, ProductTable와 SearchBar가 filterText와 inStockOnly props를 table, input과 체크 박스를 랜더링하기 위해서 읽고 있습니다.
+
+* 예를 들면, SearchBar input의 value를 아래와 같이 채우고 있습니다.
+
+
+
 # 5월 08일
 
 ## UI를 컴포넌트 계층으로 쪼개기
